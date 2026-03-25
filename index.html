@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java</title>
+</head>
+<body>
+    <!-- <script src="Discount.js"></script> -->
+    <!-- <script src="if_else.js"></script> -->
+    <!-- <script src="dom_bom.js"></script> -->
+    <!-- <h1 id="txt">Hello World</h1>
+    <p id="txtWelcome">Welcome SW20</p> -->
+
+    <!-- <h1 id="txt">Result: </h1>
+    <button onclick="Click()">Click Mk</button> -->
+
+
+    <button onclick="pressNumber(1)">1</button>
+    <button onclick="pressPlus()">+</button>
+    <button onclick="pressNumber(2)">2</button>
+    <button onclick="pressEqual()">=</button>
+
+    <h1 id="txt">Result:</h1>
+
+
+
+    <script>    
+        // let s = document.getElementById('txt');
+        // console.log(`Get Data : ${s.innerText}`);
+
+        // let Okay = document.getElementById('txtWelcome');
+        // console.log(`Get Data : ${txtWelcome.innerText}`);
+        // let rs = document.getElementById('txt') 
+        // function Click(){
+            // alert('Hello Bro');
+        //     rs.innerText = "Result: Hello Bro";
+        // }
+        let firstNumber = "";
+        let secondNumber = "";
+        let operator = "";
+        let isSecond = false;
+
+        let txt = document.getElementById("txt");
+
+        function pressNumber(num) {
+            if (!isSecond) {
+                firstNumber += num;
+                txt.innerText = `Result: ${firstNumber}`;
+            } else {
+                secondNumber += num;
+                txt.innerText = `Result: ${firstNumber} ${operator} ${secondNumber}`;
+            }
+        }
+
+        function pressPlus() {
+            if (firstNumber !== "") {
+                operator = "+";
+                isSecond = true;
+                txt.innerText = `Result: ${firstNumber} +`;
+            }
+        }
+
+        function pressEqual() {
+            if (firstNumber !== "" && secondNumber !== "" && operator === "+") {
+                let total = Number(firstNumber) + Number(secondNumber);
+                txt.innerText = `Result: ${firstNumber} + ${secondNumber} = ${total}`;
+            }
+        }
+    </script>
+
+</body>
+</html>
